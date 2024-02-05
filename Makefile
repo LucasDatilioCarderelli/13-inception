@@ -1,13 +1,12 @@
 LOGIN = ldatilio
 VOLUMES_PATH = /home/$(LOGIN)/data
-COMPOSE_PATH = ./sources/docker-compose.yml
+COMPOSE_PATH = ./srcs/docker-compose.yml
 
 export LOGIN
 
 all: build up
 
 build:
-	sudo apt update -y && sudo apt upgrade -y
 	sudo mkdir -p $(VOLUMES_PATH)/mariadb $(VOLUMES_PATH)/wordpress
 	if [ -z "$(grep -s '$(LOGIN).42.fr' /etc/hosts)" ]; then \
 		echo "127.0.0.1 $(LOGIN).42.fr" | sudo tee -a /etc/hosts ; \

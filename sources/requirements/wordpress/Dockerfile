@@ -24,6 +24,7 @@ RUN echo listen = 0.0.0.0:9000 >> /etc/php/7.4/fpm/pool.d/www.conf
 
 EXPOSE 9000
 
+# Execute php
 COPY  ./conf/script.sh /home/script.sh
 RUN chmod +x /home/script.sh
-ENTRYPOINT [ "/home/script.sh" ]
+CMD [ "/home/script.sh" ]

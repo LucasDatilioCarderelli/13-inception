@@ -11,4 +11,4 @@ if [ ! -f ./wp-config.php ]; then
     wp user create --allow-root $WORDPRESS_USER $WORDPRESS_USER@email.com --user_pass=$WORDPRESS_PASSWORD 
 fi
 
-php-fpm7.4 -F -R
+exec php-fpm7.4 -F -R
